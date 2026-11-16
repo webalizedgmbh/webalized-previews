@@ -1,0 +1,11 @@
+# Peratuso pitch preview — keep out of search engines, hide internal files
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+<FilesMatch "(?i)^(README\.md|design\.md)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 /screenshots/
+
+Options -Indexes

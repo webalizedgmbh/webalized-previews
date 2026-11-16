@@ -1,0 +1,15 @@
+<!-- Peratuso logo mark, traced from inbox/Logo_hoch.eps.png (pitch use only; replace with client vector when available).
+     viewBox 822 x 658. Groups: #bars (4 diagonal bars) · #roof (navy chevron + diamond).
+     Use inline, aria-hidden="true" focusable="false". For bars-only motifs, drop #roof. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 822 658" aria-hidden="true" focusable="false">
+  <g id="bars">
+    <polygon id="bar-light" fill="#9CCCEA" points="331,55 385,1 731,347 677,400"/>
+    <polygon id="bar-cyan"  fill="#1EA9DA" points="221,165 275,111 435,271 381,325"/>
+    <polygon id="bar-mid"   fill="#006CB1" points="111,276 164,222 381,438 327,492"/>
+    <polygon id="bar-navy"  fill="#004070" points="0,386 54,332 325,603 271,657"/>
+  </g>
+  <g id="roof" fill="#004070">
+    <polygon points="381,438 491,328 822,658 714,658 491,436 435,492"/>
+    <polygon points="492,550 546,604 492,658 438,604"/>
+  </g>
+</svg>
