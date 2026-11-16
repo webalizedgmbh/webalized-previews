@@ -11,6 +11,24 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* Hero slow zoom: pause control (WCAG 2.2.2), pauses off-screen and in hidden tabs */
+  const hero = $('#hero');
+  const toggle = $('.motion-toggle', hero);
+  let userPaused = false, inView = true;
+  const syncZoom = () => {
+    hero.classList.toggle('is-paused', userPaused || !inView || document.hidden);
+    hero.classList.toggle('is-paused-user', userPaused);
+    toggle.setAttribute('aria-label', userPaused ? 'Bildbewegung fortsetzen' : 'Bildbewegung anhalten');
+  };
+  const syncToggle = () => { toggle.hidden = reduce.matches; };
+  toggle.addEventListener('click', () => { userPaused = !userPaused; syncZoom(); });
+  document.addEventListener('visibilitychange', syncZoom);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => { inView = en.isIntersecting; syncZoom(); }).observe(hero);
+  }
+  reduce.addEventListener('change', syncToggle);
+  syncToggle(); syncZoom();
+
   /* Tile details: open on desktop, collapsed on mobile/tablet */
   const syncDetails = () => $$('.more').forEach(d => { d.open = desktop.matches; });
   syncDetails();

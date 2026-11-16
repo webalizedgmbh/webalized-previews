@@ -58,8 +58,8 @@
 
   <main id="main">
     <!-- ===== Hero ===== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__grid">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid hero__head">
         <p class="kicker hero__kicker"><span class="rule" aria-hidden="true"></span>Treuhand &amp; Immobilien · Eschlikon TG</p>
 
         <h1 class="hero__title" id="hero-title">
@@ -67,40 +67,48 @@
           <span class="ln">in Eschlikon –</span>
           <span class="ln"><em>persönlich betreut.</em></span>
         </h1>
+      </div>
 
+      <div class="container hero__grid hero__intro">
         <div class="hero__text">
           <p class="lead">Die Peratuso GmbH begleitet Unternehmen, Gründer und Privatpersonen in Buchhaltung, Lohn, Steuern und Nachfolge – und verwaltet, berät und verkauft Immobilien im Thurgau und in der Ostschweiz. Sie sprechen direkt mit Patrik Mahler, nicht mit einem Callcenter.</p>
-          <div class="hero__ctas">
-            <a class="btn" href="#kontakt">Erstgespräch vereinbaren</a>
-            <a class="tlink" href="tel:+41792973637">079 297 36 37 anrufen</a>
+        </div>
+        <div class="hero__ctas">
+          <a class="btn" href="#kontakt">Erstgespräch vereinbaren</a>
+          <a class="tlink" href="tel:+41792973637">079 297 36 37 anrufen</a>
+        </div>
+      </div>
+
+      <!-- Full-bleed image band, 45° cut corner, slow zoom. The CSS stand-in shows until assets/ai/hero-landscape.jpg exists. -->
+      <div class="hero__band">
+        <div class="hero__frame" aria-hidden="true">
+          <div class="hero__zoom">
+            <div class="hero__standin">
+              <svg class="hero__standin-bars" viewBox="0 0 731 657" focusable="false">
+                <polygon fill="#FFFFFF" points="331,55 385,1 731,347 677,400"/>
+                <polygon fill="#FFFFFF" points="221,165 275,111 435,271 381,325"/>
+                <polygon fill="#9CCCEA" points="111,276 164,222 381,438 327,492"/>
+                <polygon fill="#9CCCEA" points="0,386 54,332 325,603 271,657"/>
+              </svg>
+            </div>
+            <img class="hero__img" src="assets/ai/hero-landscape.jpg" width="2000" height="1125" alt="" decoding="async" fetchpriority="high" onerror="this.style.display='none'">
           </div>
         </div>
+        <span class="hero__cutbar" aria-hidden="true"></span>
+        <button class="motion-toggle" type="button" aria-label="Bildbewegung anhalten" hidden>
+          <svg class="motion-toggle__pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="5" width="3" height="14"/><rect x="14" y="5" width="3" height="14"/></svg>
+          <svg class="motion-toggle__play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="8 5 19 12 8 19"/></svg>
+        </button>
+      </div>
 
-        <div class="hero__media">
-          <span class="bar" aria-hidden="true"></span>
-          <figure class="ph ph--portrait" data-src="assets/ai/portrait-patrik.jpg" data-alt="Patrik Mahler, Geschäftsführer der Peratuso GmbH in Eschlikon">
-            <div class="ph__frame" role="img" aria-label="Platzhalter – Foto folgt">
-              <svg class="ph__bars" viewBox="0 0 731 657" aria-hidden="true" focusable="false">
-                <polygon fill="#9CCCEA" points="331,55 385,1 731,347 677,400"/>
-                <polygon fill="#9CCCEA" points="221,165 275,111 435,271 381,325"/>
-                <polygon fill="#004070" points="111,276 164,222 381,438 327,492"/>
-                <polygon fill="#004070" points="0,386 54,332 325,603 271,657"/>
-              </svg>
-              <span class="ph__label">Platzhalter – Foto folgt</span>
-            </div>
-            <figcaption class="ph__cap"><span class="cap-label">Patrik Mahler</span> Geschäftsführer</figcaption>
-          </figure>
-        </div>
-
-        <div class="hero__meta">
-          <dl class="colophon colophon--hero">
-            <div><dt>Telefon</dt><dd><a href="tel:+41792973637">079 297 36 37</a></dd></div>
-            <div><dt>E-Mail</dt><dd><a href="mailto:patrik@peratuso.ch">patrik@peratuso.ch</a></dd></div>
-            <div><dt>Adresse</dt><dd>Flurweg 3, 8360 Eschlikon TG</dd></div>
-            <div><dt>Erreichbar</dt><dd>Mo–Fr, 08.00–12.00 und 13.00–17.00 Uhr</dd></div>
-          </dl>
-          <p class="pull">Treuhand &amp; Immobilien aus Eschlikon · Persönlicher Ansprechpartner: Patrik Mahler</p>
-        </div>
+      <div class="container hero__meta">
+        <dl class="colophon colophon--hero">
+          <div><dt>Telefon</dt><dd><a href="tel:+41792973637">079 297 36 37</a></dd></div>
+          <div><dt>E-Mail</dt><dd><a href="mailto:patrik@peratuso.ch">patrik@peratuso.ch</a></dd></div>
+          <div><dt>Adresse</dt><dd>Flurweg 3, 8360 Eschlikon TG</dd></div>
+          <div><dt>Erreichbar</dt><dd>Mo–Fr, 08.00–12.00 und 13.00–17.00 Uhr</dd></div>
+        </dl>
+        <p class="pull">Treuhand &amp; Immobilien aus Eschlikon · Persönlicher Ansprechpartner: Patrik Mahler</p>
       </div>
     </section>
 
@@ -253,22 +261,18 @@
         </div>
 
         <div class="contact__aside" id="ueber-uns">
-          <figure class="ph ph--team reveal" data-src="assets/ai/team-patrik-paul.jpg" data-alt="Patrik Mahler und Paul Mahler, Peratuso GmbH">
-            <div class="ph__frame" role="img" aria-label="Platzhalter – Foto folgt">
-              <svg class="ph__bars" viewBox="0 0 731 657" aria-hidden="true" focusable="false">
-                <polygon fill="#9CCCEA" points="331,55 385,1 731,347 677,400"/>
-                <polygon fill="#9CCCEA" points="221,165 275,111 435,271 381,325"/>
-                <polygon fill="#004070" points="111,276 164,222 381,438 327,492"/>
-                <polygon fill="#004070" points="0,386 54,332 325,603 271,657"/>
-              </svg>
-              <span class="ph__label">Platzhalter – Foto folgt</span>
-            </div>
-            <figcaption class="ph__cap ph__cap--team">
-              <span class="cap-label">Ihre Ansprechpartner</span>
-              <span class="cap-name">Patrik Mahler — Geschäftsführer</span>
-              <span class="cap-name">Paul Mahler — Senior Berater</span>
-            </figcaption>
-          </figure>
+          <div class="panel reveal">
+            <svg class="panel__bars" viewBox="0 0 731 657" aria-hidden="true" focusable="false">
+              <polygon fill="#9CCCEA" points="331,55 385,1 731,347 677,400"/>
+              <polygon fill="#9CCCEA" points="221,165 275,111 435,271 381,325"/>
+              <polygon fill="#FFFFFF" points="111,276 164,222 381,438 327,492"/>
+              <polygon fill="#FFFFFF" points="0,386 54,332 325,603 271,657"/>
+            </svg>
+            <p class="panel__label">Ihr Ansprechpartner</p>
+            <p class="panel__name">Patrik Mahler</p>
+            <p class="panel__role">Geschäftsführer</p>
+            <p class="panel__links"><a href="tel:+41792973637">079 297 36 37</a><br><a href="mailto:patrik@peratuso.ch">patrik@peratuso.ch</a></p>
+          </div>
         </div>
       </div>
     </section>

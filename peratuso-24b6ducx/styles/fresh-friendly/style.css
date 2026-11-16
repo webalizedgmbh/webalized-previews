@@ -249,8 +249,6 @@ h3 { font-size: var(--fs-h3); }
   background: #fff; border-radius: 6px; padding: 2px 8px; box-shadow: var(--sh-sm);
   font-size: .75rem; font-weight: 500; color: var(--c-navy); line-height: 1.5;
 }
-.ph--team { aspect-ratio: 3 / 2; width: 100%; border-radius: 16px; padding: 16px; }
-.ph--team .i { width: 40px; height: 40px; }
 .ph__title { font-size: .875rem; font-weight: 500; color: var(--c-navy); }
 .ph__file { font-size: .75rem; color: var(--c-muted); overflow-wrap: anywhere; }
 
@@ -349,8 +347,10 @@ h3 { font-size: var(--fs-h3); }
 .contact__text { margin-top: 16px; font-size: 1rem; color: var(--c-text); }
 .contact__info .info-list { margin-top: 28px; }
 .contact__team { grid-area: team; background: var(--c-tint); border-radius: var(--r-lg); padding: 24px; }
-.people { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
-.people li { display: grid; line-height: 1.4; }
+.team-label { font-family: var(--ff-body); font-size: .8125rem; line-height: 1.4; font-weight: 500; color: var(--c-blue); text-transform: uppercase; letter-spacing: .06em; }
+.team-person { display: flex; align-items: center; gap: 16px; margin-top: 14px; padding: 16px; background: #fff; border-radius: 16px; }
+.team-person .chip { background: var(--c-chip); }
+.people { display: grid; line-height: 1.4; }
 .people strong { color: var(--c-navy); }
 .people span { font-size: var(--fs-small); color: var(--c-muted); }
 .contact__form { grid-area: form; padding: 24px 16px; }

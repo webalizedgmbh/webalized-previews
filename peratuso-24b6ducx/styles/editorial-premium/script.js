@@ -9,6 +9,24 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* Hero slow zoom: pause control (WCAG 2.2.2), pauses off-screen and in hidden tabs */
+  var hero = document.getElementById('hero');
+  var toggle = hero.querySelector('.motion-toggle');
+  var userPaused = false, inView = true;
+  function syncZoom() {
+    hero.classList.toggle('is-paused', userPaused || !inView || document.hidden);
+    hero.classList.toggle('is-paused-user', userPaused);
+    toggle.setAttribute('aria-label', userPaused ? 'Bildbewegung fortsetzen' : 'Bildbewegung anhalten');
+  }
+  toggle.hidden = reduce;
+  toggle.addEventListener('click', function () { userPaused = !userPaused; syncZoom(); });
+  document.addEventListener('visibilitychange', syncZoom);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { inView = en[0].isIntersecting; syncZoom(); })
+      .observe(hero.querySelector('.hero__band'));
+  }
+  syncZoom();
+
   /* Mobile menu */
   var burger = document.querySelector('.burger');
   var menu = document.getElementById('menu');

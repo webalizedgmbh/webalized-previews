@@ -27,6 +27,8 @@
   <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
   <symbol id="m-bars" viewBox="0 0 731 658">
     <polygon fill="#9CCCEA" points="331,55 385,1 731,347 677,400"/>
     <polygon fill="#1EA9DA" points="221,165 275,111 435,271 381,325"/>
@@ -98,8 +100,20 @@
 <main id="main">
 
   <!-- 6.3 Hero -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <!-- Hero image: slow zoom (Ken Burns). The CSS stand-in shows until assets/ai/hero-details.jpg exists. -->
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__zoom">
+        <div class="hero__standin"><svg class="hero__standin-bars" focusable="false"><use href="#m-bars"/></svg></div>
+        <img class="hero__img" src="assets/ai/hero-details.jpg" width="2400" height="1350" alt="" decoding="async" fetchpriority="high" onerror="this.style.display='none'">
+      </div>
+      <div class="hero__veil"></div>
+    </div>
     <div class="hero__deco" aria-hidden="true"><svg class="hero__corner" focusable="false"><use href="#m-full"/></svg></div>
+    <button class="motion-toggle" type="button" aria-label="Bildbewegung anhalten" hidden>
+      <svg class="ic ic--16 motion-toggle__pause" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+      <svg class="ic ic--16 motion-toggle__play" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+    </button>
     <div class="container hero__grid">
       <div class="hero__text">
         <svg class="orn" aria-hidden="true" focusable="false"><use href="#m-bars"/></svg>
@@ -115,12 +129,6 @@
           <li><a href="mailto:patrik@peratuso.ch"><svg class="ic ic--20" aria-hidden="true"><use href="#i-mail"/></svg>patrik@peratuso.ch</a></li>
           <li><span><svg class="ic ic--20" aria-hidden="true"><use href="#i-pin"/></svg><span class="num">Flurweg 3, 8360 Eschlikon TG</span></span></li>
         </ul>
-      </div>
-      <div class="hero__media">
-        <figure class="ph ph--portrait" data-src="assets/ai/portrait-patrik.jpg" data-alt="Patrik Mahler, Geschäftsführer der Peratuso GmbH in Eschlikon" role="img" aria-label="Platzhalter – Foto folgt">
-          <svg class="ph__orn" aria-hidden="true" focusable="false"><use href="#m-bars"/></svg>
-          <span class="ph__label">Platzhalter – Foto folgt</span>
-        </figure>
       </div>
     </div>
     <div class="container trust-wrap">
@@ -260,15 +268,14 @@
         </ul>
         <hr class="divider">
         <div id="ueber-uns" class="team">
-          <p class="kicker">Ihre Ansprechpartner</p>
-          <figure class="ph ph--team" data-src="assets/ai/team-patrik-paul.jpg" data-alt="Patrik Mahler und Paul Mahler, Peratuso GmbH" role="img" aria-label="Platzhalter – Foto folgt">
-            <svg class="ph__orn" aria-hidden="true" focusable="false"><use href="#m-bars"/></svg>
-            <span class="ph__label">Platzhalter – Foto folgt</span>
-          </figure>
-          <ul class="people">
-            <li><b>Patrik Mahler</b> — <span>Geschäftsführer</span></li>
-            <li><b>Paul Mahler</b> — <span>Senior Berater</span></li>
-          </ul>
+          <p class="kicker">Ihr Ansprechpartner</p>
+          <div class="person">
+            <svg class="person__orn" aria-hidden="true" focusable="false"><use href="#m-bars"/></svg>
+            <ul class="people">
+              <li><b>Patrik Mahler</b></li>
+              <li><span>Geschäftsführer</span></li>
+            </ul>
+          </div>
         </div>
       </div>
 
