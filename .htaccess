@@ -1,0 +1,6 @@
+# Previews are for clients only — never in search engines, no folder listings
+Options -Indexes
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+DirectoryIndex index.html

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idealmöbel — Coastal Moderno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#F2EBDD;
+    --sand-deep:#E7DBC2;
+    --sea:#3E6E68;
+    --sea-deep:#2C504C;
+    --terracotta:#D9714A;
+    --ink:#23282A;
+    --white:#FFFFFF;
+    --line:#E0D6BE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Outfit',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 56px;
+    background:var(--white);
+  }
+  .logo{ display:flex; align-items:center; }
+  .nav{display:flex;gap:8px;}
+  .nav a{
+    padding:10px 18px;
+    border-radius:100px;
+    font-size:14px;
+    font-weight:500;
+  }
+  .nav a.active{background:var(--sand);}
+  .nav-icons{display:flex;gap:18px;align-items:center;}
+  .cart-pill{
+    background:var(--sea);
+    color:var(--white);
+    padding:9px 18px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:500;
+  }
+
+  .product{
+    display:grid;
+    grid-template-columns:1fr 0.85fr;
+    gap:56px;
+    padding:32px 56px 90px;
+    max-width:1380px;
+    margin:0 auto;
+  }
+
+  .gallery-main{
+    aspect-ratio:1/1;
+    border-radius:24px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .badge{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:var(--white);
+    padding:8px 16px;
+    border-radius:100px;
+    font-size:12px;
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sea);}
+  .like-btn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:40px;height:40px;
+    background:var(--white);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .gallery-thumbs{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:14px;
+  }
+  .thumb{
+    aspect-ratio:1;
+    border-radius:14px;
+    background-size:cover;
+    background-position:center;
+    opacity:0.5;
+    cursor:pointer;
+  }
+  .thumb.active{opacity:1;outline:2px solid var(--sea);outline-offset:2px;}
+
+  .info{padding-top:8px;}
+  .info-tags{
+    display:flex;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .tag{
+    background:var(--sand);
+    color:var(--sea-deep);
+    font-size:12px;
+    font-weight:500;
+    padding:6px 14px;
+    border-radius:100px;
+  }
+  .info h1{
+    font-size:40px;
+    font-weight:600;
+    letter-spacing:-1px;
+    margin-bottom:12px;
+  }
+  .info-desc{
+    font-size:15px;
+    line-height:1.7;
+    color:#5C6260;
+    max-width:430px;
+    margin-bottom:28px;
+  }
+
+  .price-card{
+    background:var(--sand);
+    border-radius:20px;
+    padding:24px;
+    margin-bottom:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .price-card .amount{font-size:26px;font-weight:600;}
+  .price-card .sub{font-size:12px;color:#5C6260;margin-top:4px;}
+  .free-ship{
+    background:var(--sea);
+    color:var(--white);
+    font-size:11px;
+    font-weight:500;
+    padding:6px 12px;
+    border-radius:100px;
+  }
+
+  .option-block{margin-bottom:22px;}
+  .option-label{font-size:13px;font-weight:500;margin-bottom:10px;}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .pill{
+    padding:10px 18px;
+    border-radius:100px;
+    border:1.5px solid var(--line);
+    font-size:13px;
+    cursor:pointer;
+  }
+  .pill.active{border-color:var(--sea);background:var(--sea);color:var(--white);}
+
+  .btn-row{display:flex;gap:12px;margin-top:28px;margin-bottom:28px;}
+  .btn-primary{
+    flex:1;
+    background:var(--terracotta);
+    color:var(--white);
+    padding:18px 0;
+    border-radius:100px;
+    text-align:center;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-icon{
+    width:56px;
+    border-radius:100px;
+    border:1.5px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+
+  .perks{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .perk{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    font-size:13px;
+    color:#5C6260;
+  }
+  .perk-icon{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--sand);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    flex-shrink:0;
+    color:var(--sea-deep);
+  }
+
+  .lifestyle{
+    background:var(--sea);
+    color:var(--white);
+    padding:90px 56px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:center;
+    border-radius:32px;
+    margin:0 32px 60px;
+  }
+  .lifestyle h2{
+    font-size:34px;
+    font-weight:600;
+    line-height:1.25;
+    margin-bottom:18px;
+    max-width:420px;
+  }
+  .lifestyle p{
+    font-size:15px;
+    line-height:1.8;
+    opacity:0.85;
+    max-width:420px;
+  }
+  .lifestyle-img{
+    aspect-ratio:1.1/1;
+    border-radius:24px;
+    background-size:cover;
+    background-position:center;
+  }
+
+  footer{
+    padding:40px 56px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#5C6260;
+  }
+
+  @media (max-width: 860px){
+    .topbar{padding:14px 20px;}
+    .nav{display:none;}
+    .cart-pill{font-size:12px;padding:8px 14px;}
+    .product{
+      grid-template-columns:1fr;
+      padding:16px 20px 56px;
+      gap:24px;
+    }
+    .gallery-thumbs{grid-template-columns:repeat(4,1fr);}
+    .info h1{font-size:28px;}
+    .info-desc{max-width:100%;}
+    .info-tags{flex-wrap:wrap;}
+    .pill-row{gap:6px;}
+    .pill{padding:9px 14px;font-size:12px;}
+    .price-card{flex-wrap:wrap;gap:10px;}
+    .lifestyle{
+      grid-template-columns:1fr;
+      padding:40px 20px;
+      margin:0 16px 32px;
+      gap:24px;
+    }
+    .lifestyle h2,.lifestyle p{max-width:100%;}
+    .lifestyle h2{font-size:24px;}
+    footer{padding:24px 20px;flex-direction:column;gap:6px;text-align:center;}
+  }
+
+  @media (max-width: 420px){
+    .info h1{font-size:25px;}
+    .price-card .amount{font-size:22px;}
+    .btn-primary{font-size:13px;padding:16px 0;}
+    .lifestyle h2{font-size:21px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="logo"><img src="img/idealmoebel-logo.webp" alt="Idealmöbel" height="44" style="display:block;"></div>
+    <nav class="nav">
+      <a class="active" href="#">Esstische</a>
+      <a href="#">Sofas</a>
+      <a href="#">Betten</a>
+      <a href="#">Outdoor</a>
+    </nav>
+    <div class="nav-icons">
+      <span>⚲</span>
+      <span class="cart-pill">Warenkorb · 0</span>
+    </div>
+  </div>
+
+  <div class="product">
+    <div>
+      <div class="gallery-main" style="background-image:url('img/taranto-garden.webp');">
+        <div class="badge">Travertin Kollektion</div>
+        <div class="like-btn">♡</div>
+      </div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" style="background-image:url('img/taranto-front.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-side.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-livingroom.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-top.webp');"></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info-tags">
+        <span class="tag">Bestseller</span>
+        <span class="tag">4–6 Personen</span>
+      </div>
+      <h1>Tavolo Taranto</h1>
+      <p class="info-desc">Massiver Travertin mit warmen, natürlichen Maserungen — die runde Form macht diesen Tisch zum Mittelpunkt drinnen wie draussen.</p>
+
+      <div class="price-card">
+        <div>
+          <div class="amount">CHF 4'490.–</div>
+          <div class="sub">Inkl. MwSt.</div>
+        </div>
+        <span class="free-ship">Versand beim Checkout</span>
+      </div>
+
+      <div class="option-block">
+        <div class="option-label">Oberfläche</div>
+        <div class="pill-row">
+          <div class="pill active">Poliert matt</div>
+          <div class="pill">Roh</div>
+        </div>
+      </div>
+
+      <div class="option-block">
+        <div class="option-label">Durchmesser</div>
+        <div class="pill-row">
+          <div class="pill active">150 cm</div>
+          <div class="pill">130 cm</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary">In den Warenkorb</button>
+        <div class="btn-icon">♡</div>
+      </div>
+
+      <div class="perks">
+        <div class="perk"><div class="perk-icon">✓</div>Lieferung in 2 Paketen, zerlegt — Aufbauanleitung inklusive</div>
+        <div class="perk"><div class="perk-icon">↻</div>24 Monate Garantie</div>
+        <div class="perk"><div class="perk-icon">★</div>Schweizer Showroom in Islikon — persönlich beraten</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lifestyle">
+    <div>
+      <h2>Ein Ort für besondere Momente</h2>
+      <p>Inspiriert von der Wärme des Mittelmeers — der Taranto wird zum Mittelpunkt gemeinsamer Mahlzeiten, inspirierender Gespräche und unvergesslicher Momente.</p>
+    </div>
+    <div class="lifestyle-img" style="background-image:url('img/taranto-livingroom.webp');"></div>
+  </div>
+
+  <footer>
+    <span>Idealmöbel GmbH — Islikon, Schweiz</span>
+    <span>Showroom · Lieferung · Support</span>
+  </footer>
+
+</body>
+</html>

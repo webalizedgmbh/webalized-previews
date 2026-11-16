@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idealmöbel — Webdesign Präsentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#EAE6DD;
+    --stone-deep:#DDD6C7;
+    --gold:#A8843F;
+    --gold-light:#C9A85F;
+    --charcoal:#1E1C19;
+    --white:#FBFAF7;
+    --line:#D4CCBB;
+    --text-soft:#5C5648;
+    --green-ok:#5C7060;
+    --red-no:#A8552E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--white);
+    color:var(--charcoal);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:32px 70px;
+  }
+  .logo{
+    font-family:'Cormorant',serif;
+    font-size:22px;
+    font-weight:500;
+    letter-spacing:3px;
+    text-transform:uppercase;
+  }
+  .logo span{color:var(--gold);}
+  .topbar-meta{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--text-soft);
+  }
+  .gold-rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);margin:0 70px;}
+
+  .hero{
+    padding:90px 70px 70px;
+    max-width:900px;
+  }
+  .hero-eyebrow{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-family:'Cormorant',serif;
+    font-weight:400;
+    font-size:52px;
+    line-height:1.15;
+    margin-bottom:24px;
+  }
+  .hero p{
+    font-size:16px;
+    line-height:1.85;
+    color:var(--text-soft);
+    max-width:620px;
+  }
+
+  .intro-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    margin:0 70px 90px;
+  }
+  .intro-stat{
+    background:var(--white);
+    padding:32px 28px;
+  }
+  .intro-stat .num{
+    font-family:'Cormorant',serif;
+    font-size:30px;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  .intro-stat .label{
+    font-size:13px;
+    color:var(--text-soft);
+    line-height:1.6;
+  }
+
+  .section-head{
+    padding:0 70px;
+    margin-bottom:48px;
+  }
+  .section-eyebrow{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  .section-head h2{
+    font-family:'Cormorant',serif;
+    font-weight:400;
+    font-size:36px;
+  }
+
+  .designs{
+    padding:0 70px 100px;
+    display:flex;
+    flex-direction:column;
+    gap:64px;
+  }
+
+  .design-card{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:start;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+  .design-card:last-child{border-bottom:none;padding-bottom:0;}
+
+  .design-visual{
+    aspect-ratio:4/5;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+  }
+  .design-number{
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:36px;
+    height:36px;
+    border:1px solid rgba(251,250,247,0.6);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cormorant',serif;
+    font-size:15px;
+    background:rgba(30,28,25,0.3);
+  }
+
+  .design-name{
+    font-size:11px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .design-title{
+    font-family:'Cormorant',serif;
+    font-weight:400;
+    font-size:32px;
+    margin-bottom:18px;
+  }
+  .design-desc{
+    font-size:15px;
+    line-height:1.8;
+    color:var(--text-soft);
+    margin-bottom:32px;
+    max-width:520px;
+  }
+
+  .proscons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin-bottom:28px;
+  }
+  .pc-col-title{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .pc-col-title.pro{color:var(--green-ok);}
+  .pc-col-title.con{color:var(--red-no);}
+  .pc-col-title::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+  }
+  .pc-col-title.pro::before{background:var(--green-ok);}
+  .pc-col-title.con::before{background:var(--red-no);}
+  .pc-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .pc-list li{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--text-soft);
+    padding-left:14px;
+    border-left:1px solid var(--line);
+  }
+
+  .best-for{
+    background:var(--stone);
+    padding:18px 22px;
+    font-size:13px;
+    line-height:1.6;
+    color:var(--charcoal);
+    margin-bottom:18px;
+  }
+  .best-for b{color:var(--gold);font-weight:400;}
+
+  .view-live{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--gold);
+    border-bottom:1px solid var(--gold-light);
+    padding-bottom:4px;
+  }
+  .view-live:hover{color:var(--charcoal);border-color:var(--charcoal);}
+
+  .compare-section{
+    background:var(--stone);
+    padding:90px 70px;
+  }
+  .compare-section .section-head{padding:0;margin-bottom:56px;}
+  .compare-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--white);
+  }
+  .compare-table th,.compare-table td{
+    padding:18px 22px;
+    text-align:left;
+    font-size:13px;
+    border-bottom:1px solid var(--line);
+  }
+  .compare-table th{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:400;
+  }
+  .compare-table td:first-child,.compare-table th:first-child{
+    color:var(--text-soft);
+    font-size:12px;
+    letter-spacing:0.5px;
+  }
+  .compare-table tr:last-child td{border-bottom:none;}
+
+  .recommendation{
+    padding:90px 70px;
+    max-width:900px;
+  }
+  .recommendation .section-head{padding:0;margin-bottom:32px;}
+  .recommendation p{
+    font-size:16px;
+    line-height:1.85;
+    color:var(--text-soft);
+    margin-bottom:20px;
+    max-width:640px;
+  }
+  .recommendation .highlight{
+    background:var(--stone);
+    padding:28px 30px;
+    margin-top:32px;
+    font-size:15px;
+    line-height:1.8;
+  }
+  .recommendation .highlight b{color:var(--gold);font-weight:400;}
+
+  .next-steps{
+    background:var(--charcoal);
+    color:var(--white);
+    padding:80px 70px;
+    text-align:center;
+  }
+  .next-steps .section-eyebrow{color:var(--gold-light);}
+  .next-steps h2{
+    font-family:'Cormorant',serif;
+    font-size:32px;
+    font-weight:400;
+    margin-bottom:24px;
+  }
+  .next-steps p{
+    font-size:15px;
+    line-height:1.8;
+    opacity:0.75;
+    max-width:560px;
+    margin:0 auto;
+  }
+
+  footer{
+    padding:48px 70px;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--text-soft);
+  }
+
+  @media (max-width: 900px){
+    .topbar{padding:18px 20px;flex-direction:column;align-items:flex-start;gap:8px;}
+    .gold-rule{margin:0 20px;}
+    .hero{padding:48px 20px 40px;}
+    .hero h1{font-size:34px;}
+    .intro-stats{grid-template-columns:1fr;margin:0 20px 56px;}
+    .section-head{padding:0 20px;}
+    .section-head h2{font-size:27px;}
+    .designs{padding:0 20px 56px;gap:48px;}
+    .design-card{grid-template-columns:1fr;gap:24px;padding-bottom:48px;}
+    .design-title{font-size:26px;}
+    .proscons{grid-template-columns:1fr;gap:20px;}
+    .compare-section{padding:56px 20px;}
+    .compare-section .section-head{margin-bottom:32px;}
+    .compare-table{font-size:12px;}
+    .compare-table th,.compare-table td{padding:12px 10px;}
+    .recommendation{padding:56px 20px;}
+    .recommendation .highlight{padding:22px 20px;}
+    .next-steps{padding:56px 20px;}
+    .next-steps h2{font-size:26px;}
+    footer{padding:28px 20px;flex-direction:column;gap:6px;text-align:center;}
+  }
+
+  @media (max-width: 480px){
+    .hero h1{font-size:28px;}
+    .design-title{font-size:23px;}
+    .compare-table{display:block;overflow-x:auto;white-space:nowrap;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="logo">Ideal<span>möbel</span></div>
+    <div class="topbar-meta">Webdesign Vorschläge — Juni 2026</div>
+  </div>
+  <div class="gold-rule"></div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Präsentation</div>
+    <h1>Vier Richtungen für Ihren neuen Online-Auftritt</h1>
+    <p>Basierend auf Ihrem Produktsortiment — insbesondere der Travertin- und Epoxidharz-Kollektion — haben wir vier visuelle Richtungen entwickelt, die Ihre Möbel als das zeigen, was sie sind: hochwertige Designstücke. Jede Richtung ist anhand des Taranto Esstischs dargestellt.</p>
+  </div>
+
+  <div class="intro-stats">
+    <div class="intro-stat">
+      <div class="num">04</div>
+      <div class="label">Eigenständige Designrichtungen, jede mit klarem Charakter</div>
+    </div>
+    <div class="intro-stat">
+      <div class="num">01</div>
+      <div class="label">Produkt als Referenz — der Taranto Esstisch aus Travertin</div>
+    </div>
+    <div class="intro-stat">
+      <div class="num">Dawn</div>
+      <div class="label">Basis-Theme für die Umsetzung auf Shopify</div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div class="section-eyebrow">Die Vorschläge</div>
+    <h2>Vier Designrichtungen im Detail</h2>
+  </div>
+
+  <div class="designs">
+
+    <div class="design-card">
+      <div class="design-visual" style="background-image:url('img/preview-01.webp');">
+        <div class="design-number">01</div>
+      </div>
+      <div>
+        <div class="design-name">Bolia Mediterraneo</div>
+        <div class="design-title">Editorial & ruhig</div>
+        <p class="design-desc">Eine grosszügige, redaktionelle Gestaltung mit viel Weissraum, einer eleganten Serifenschrift und warmen Cremetönen. Inspiriert vom skandinavischen Designstil, aber mit mediterraner Wärme statt nordischer Kühle.</p>
+
+        <div class="proscons">
+          <div>
+            <div class="pc-col-title pro">Vorteile</div>
+            <ul class="pc-list">
+              <li>Wirkt sofort hochwertig und zeitlos</li>
+              <li>Lässt die Produktfotos im Mittelpunkt stehen</li>
+              <li>Sehr gut lesbar, klare Struktur</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pc-col-title con">Nachteile</div>
+            <ul class="pc-list">
+              <li>Benötigt durchgehend hochwertige Fotos</li>
+              <li>Wirkt bei vielen Produkten pro Seite weniger dicht</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="best-for"><b>Am besten geeignet für:</b> Marken, die auf wenige, hochwertige Hero-Produkte setzen und eine ruhige, vertrauenswürdige Ausstrahlung wollen.</div>
+        <a class="view-live" href="../design/01-bolia-mediterraneo.html" target="_blank">Design live ansehen →</a>
+      </div>
+    </div>
+
+    <div class="design-card">
+      <div class="design-visual" style="background-image:url('img/preview-02.webp');">
+        <div class="design-number">02</div>
+      </div>
+      <div>
+        <div class="design-name">Boutique Artigianale</div>
+        <div class="design-title">Warm & handwerklich</div>
+        <p class="design-desc">Erdige Farbtöne, eine kursive Display-Schrift und Elemente wie "Unikat-Nummer" oder Werkstatt-Geschichten betonen Handwerk und Material. Eine dunkle Storytelling-Sektion sorgt für emotionale Tiefe.</p>
+
+        <div class="proscons">
+          <div>
+            <div class="pc-col-title pro">Vorteile</div>
+            <ul class="pc-list">
+              <li>Starke emotionale Verbindung zum Material</li>
+              <li>Differenziert sich klar von Standard-Möbelshops</li>
+              <li>Gut für Storytelling rund um Herstellung</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pc-col-title con">Nachteile</div>
+            <ul class="pc-list">
+              <li>Setzt eine "Handwerk"-Erzählung voraus</li>
+              <li>Etwas weniger geeignet für Serienprodukte</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="best-for"><b>Am besten geeignet für:</b> Eine Marke, die Wert auf Herkunft, Material und persönliche Beratung legt.</div>
+        <a class="view-live" href="../design/02-boutique-artigianale.html" target="_blank">Design live ansehen →</a>
+      </div>
+    </div>
+
+    <div class="design-card">
+      <div class="design-visual" style="background-image:url('img/preview-03.webp');">
+        <div class="design-number">03</div>
+      </div>
+      <div>
+        <div class="design-name">Minimal Luxury</div>
+        <div class="design-title">Exklusiv & edel</div>
+        <p class="design-desc">Goldakzente, eine klassische Serifenschrift und ein "Limited Edition"-Charakter positionieren die Premium-Stücke wie Travertin- und Epoxidharz-Tische als exklusive Sammlerstücke.</p>
+
+        <div class="proscons">
+          <div>
+            <div class="pc-col-title pro">Vorteile</div>
+            <ul class="pc-list">
+              <li>Maximale Wertanmutung für hochpreisige Produkte</li>
+              <li>Goldakzente schaffen ein klares Wiedererkennungsmerkmal</li>
+              <li>Sehr gut für Concierge-Service / persönliche Beratung</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pc-col-title con">Nachteile</div>
+            <ul class="pc-list">
+              <li>Könnte für preisbewusste Kunden zu exklusiv wirken</li>
+              <li>Erfordert konsequente Bildsprache über die ganze Seite</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="best-for"><b>Am besten geeignet für:</b> Die Positionierung der High-End-Linie (Travertin, Epoxidharz) als eigenes Premium-Segment.</div>
+        <a class="view-live" href="../design/03-minimal-luxury.html" target="_blank">Design live ansehen →</a>
+      </div>
+    </div>
+
+    <div class="design-card">
+      <div class="design-visual" style="background-image:url('img/preview-04.webp');">
+        <div class="design-number">04</div>
+      </div>
+      <div>
+        <div class="design-name">Coastal Moderno</div>
+        <div class="design-title">Frisch & zugänglich</div>
+        <p class="design-desc">Runde Formen, eine kräftige geometrische Schrift und eine grüne / terracotta Farbpalette erinnern an mediterrane Sommerabende. Wirkt freundlicher und zugänglicher als die anderen drei Richtungen.</p>
+
+        <div class="proscons">
+          <div>
+            <div class="pc-col-title pro">Vorteile</div>
+            <ul class="pc-list">
+              <li>Zugänglich für ein breiteres Kundensegment</li>
+              <li>Bewertungen, Lieferinfos & Vorteile gut sichtbar</li>
+              <li>Wirkt modern, ohne kalt zu sein</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pc-col-title con">Nachteile</div>
+            <ul class="pc-list">
+              <li>Weniger exklusiv als Richtung 03</li>
+              <li>Runde Formen passen nicht zu jedem Produktfoto</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="best-for"><b>Am besten geeignet für:</b> Das gesamte Sortiment inkl. Einstiegspreise — nicht nur die Premium-Linie.</div>
+        <a class="view-live" href="../design/04-coastal-moderno.html" target="_blank">Design live ansehen →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="compare-section">
+    <div class="section-head">
+      <div class="section-eyebrow">Im Überblick</div>
+      <h2>Direkter Vergleich</h2>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Kriterium</th>
+        <th>01 Bolia Mediterraneo</th>
+        <th>02 Boutique Artigianale</th>
+        <th>03 Minimal Luxury</th>
+        <th>04 Coastal Moderno</th>
+      </tr>
+      <tr>
+        <td>Preisanmutung</td>
+        <td>Hoch</td>
+        <td>Hoch</td>
+        <td>Sehr hoch</td>
+        <td>Mittel–hoch</td>
+      </tr>
+      <tr>
+        <td>Zugänglichkeit</td>
+        <td>Mittel</td>
+        <td>Mittel</td>
+        <td>Niedrig</td>
+        <td>Hoch</td>
+      </tr>
+      <tr>
+        <td>Storytelling-Fokus</td>
+        <td>Produkt</td>
+        <td>Handwerk</td>
+        <td>Exklusivität</td>
+        <td>Lifestyle</td>
+      </tr>
+      <tr>
+        <td>Eignet sich für ganzes Sortiment</td>
+        <td>Bedingt</td>
+        <td>Bedingt</td>
+        <td>Nein</td>
+        <td>Ja</td>
+      </tr>
+      <tr>
+        <td>Umsetzungsaufwand auf Dawn</td>
+        <td>Mittel</td>
+        <td>Mittel</td>
+        <td>Mittel–hoch</td>
+        <td>Mittel</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="recommendation">
+    <div class="section-head">
+      <div class="section-eyebrow">Unsere Einschätzung</div>
+      <h2>Eine Empfehlung</h2>
+    </div>
+    <p>Alle vier Richtungen sind bewusst so gestaltet, dass sie auf dem kostenlosen Shopify-Theme Dawn umsetzbar sind — der Unterschied liegt nicht im technischen Aufwand, sondern in der Positionierung, die Idealmöbel damit einnimmt.</p>
+    <p>Sollten Sie sich nicht für eine einzelne Richtung entscheiden können, lässt sich auch eine Kombination umsetzen — zum Beispiel die Struktur von Coastal Moderno (04) für das gesamte Sortiment, mit den Goldakzenten von Minimal Luxury (03) speziell für die Travertin- und Epoxidharz-Linie.</p>
+    <div class="highlight"><b>Nächster Schritt —</b> Wählen Sie eine Richtung (oder eine Kombination), und wir setzen diese im Shopify-Theme Dawn um, zunächst mit dem Taranto Tisch als Testprodukt.</div>
+  </div>
+
+  <div class="next-steps">
+    <div class="section-eyebrow">Bereit für den nächsten Schritt?</div>
+    <h2>Lassen Sie uns Ihre Wahl besprechen</h2>
+    <p>Wir freuen uns auf Ihr Feedback zu den vier Richtungen und stehen für Fragen zu Umsetzung, Zeitplan und Kosten gerne zur Verfügung.</p>
+  </div>
+
+  <footer>
+    <span>Erstellt für Idealmöbel GmbH — Islikon, Schweiz</span>
+    <span>Webdesign Präsentation · Juni 2026</span>
+  </footer>
+
+</body>
+</html>

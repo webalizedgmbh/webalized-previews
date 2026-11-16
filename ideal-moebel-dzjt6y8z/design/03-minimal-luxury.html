@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idealmöbel — Minimal Luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#EAE6DD;
+    --stone-deep:#DDD6C7;
+    --gold:#A8843F;
+    --gold-light:#C9A85F;
+    --charcoal:#1E1C19;
+    --white:#FBFAF7;
+    --line:#D4CCBB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--white);
+    color:var(--charcoal);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:32px 70px;
+  }
+  .logo{ display:flex; align-items:center; }
+  .nav{
+    display:flex;
+    gap:44px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .nav-icons{
+    display:flex;
+    gap:24px;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  .gold-rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);margin:0 70px;}
+
+  .product{
+    display:grid;
+    grid-template-columns:1fr 0.75fr;
+    gap:90px;
+    padding:64px 70px 110px;
+    max-width:1440px;
+    margin:0 auto;
+  }
+
+  .gallery-main{
+    aspect-ratio:1/1.15;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+  }
+  .gallery-main::before{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border:1px solid rgba(251,250,247,0.4);
+  }
+  .limited-badge{
+    position:absolute;
+    top:30px;
+    right:30px;
+    border:1px solid var(--gold-light);
+    color:var(--white);
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:8px 14px;
+    background:rgba(30,28,25,0.35);
+  }
+  .gallery-thumbs{
+    display:flex;
+    gap:1px;
+    margin-top:1px;
+  }
+  .thumb{
+    flex:1;
+    aspect-ratio:1.4;
+    background-size:cover;
+    background-position:center;
+    opacity:0.45;
+    cursor:pointer;
+  }
+  .thumb.active{opacity:1;}
+
+  .info{padding-top:12px;}
+  .info-eyebrow{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:22px;
+  }
+  .info h1{
+    font-family:'Cormorant',serif;
+    font-weight:400;
+    font-size:48px;
+    line-height:1.12;
+    margin-bottom:6px;
+  }
+  .info-sub{
+    font-size:13px;
+    letter-spacing:1px;
+    color:#807A6E;
+    margin-bottom:28px;
+  }
+  .info-desc{
+    font-size:15px;
+    line-height:1.85;
+    color:#4A453C;
+    max-width:420px;
+    margin-bottom:36px;
+  }
+
+  .price{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:8px;
+  }
+  .price .amount{
+    font-family:'Cormorant',serif;
+    font-size:32px;
+  }
+  .price .label{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .price-note{
+    font-size:12px;
+    color:#807A6E;
+    margin-bottom:36px;
+  }
+
+  .spec-table{
+    margin-bottom:36px;
+  }
+  .spec-row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+  }
+  .spec-row span:first-child{color:#807A6E;letter-spacing:0.5px;}
+
+  .btn-primary{
+    width:100%;
+    background:var(--charcoal);
+    color:var(--white);
+    padding:20px 0;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    cursor:pointer;
+    border:1px solid var(--charcoal);
+    margin-bottom:14px;
+    position:relative;
+  }
+  .btn-outline{
+    width:100%;
+    border:1px solid var(--gold-light);
+    color:var(--gold);
+    padding:18px 0;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    cursor:pointer;
+    background:none;
+  }
+
+  .concierge{
+    margin-top:36px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:#4A453C;
+    line-height:1.8;
+  }
+  .concierge b{color:var(--gold);font-weight:400;}
+
+  .collection-strip{
+    background:var(--stone);
+    padding:90px 70px;
+    text-align:center;
+  }
+  .collection-strip .eyebrow{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  .collection-strip h2{
+    font-family:'Cormorant',serif;
+    font-size:36px;
+    font-weight:400;
+    margin-bottom:50px;
+  }
+  .collection-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .collection-item{
+    aspect-ratio:0.85;
+    background-size:cover;
+    background-position:center;
+  }
+
+  footer{
+    padding:48px 70px;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#807A6E;
+  }
+
+  @media (max-width: 860px){
+    .topbar{padding:16px 20px;flex-direction:column;align-items:flex-start;gap:8px;}
+    .nav{display:none;}
+    .nav-icons{font-size:11px;gap:14px;}
+    .gold-rule{margin:0 20px;}
+    .product{
+      grid-template-columns:1fr;
+      padding:32px 20px 56px;
+      gap:28px;
+    }
+    .info h1{font-size:34px;}
+    .info-desc{max-width:100%;}
+    .spec-row{font-size:12px;}
+    .collection-strip{padding:48px 20px;}
+    .collection-strip h2{font-size:27px;}
+    .collection-grid{grid-template-columns:repeat(2,1fr);}
+    footer{padding:24px 20px;flex-direction:column;gap:6px;text-align:center;}
+  }
+
+  @media (max-width: 420px){
+    .info h1{font-size:28px;}
+    .price .amount{font-size:26px;}
+    .btn-primary,.btn-outline{font-size:11px;padding:16px 0;}
+    .collection-grid{grid-template-columns:1fr 1fr;}
+    .collection-strip h2{font-size:23px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="logo"><img src="img/idealmoebel-logo.webp" alt="Idealmöbel" height="44" style="display:block;"></div>
+    <nav class="nav">
+      <a href="#">Tische</a>
+      <a href="#">Sofas</a>
+      <a href="#">Betten</a>
+      <a href="#">Atelier</a>
+    </nav>
+    <div class="nav-icons">
+      <span>Suche</span>
+      <span>Konto</span>
+      <span>Korb · 0</span>
+    </div>
+  </div>
+  <div class="gold-rule"></div>
+
+  <div class="product">
+    <div>
+      <div class="gallery-main" style="background-image:url('img/taranto-atmospheric.webp');">
+        <div class="limited-badge">Travertin Atelier</div>
+      </div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" style="background-image:url('img/taranto-front.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-side.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-detail-corner.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-top.webp');"></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info-eyebrow">Travertin Atelier</div>
+      <h1>Taranto</h1>
+      <div class="info-sub">Runder Esstisch aus massivem Travertin</div>
+      <p class="info-desc">Ein Statement-Stück für den Essbereich: handselektierter Travertin in warmen Beigetönen, geformt zu einer runden Silhouette von zeitloser Ruhe.</p>
+
+      <div class="price">
+        <span class="amount">CHF 4'490.–</span>
+        <span class="label">Inkl. MwSt.</span>
+      </div>
+      <div class="price-note">Versand wird beim Checkout berechnet</div>
+
+      <div class="spec-table">
+        <div class="spec-row"><span>Durchmesser</span><span>150 cm</span></div>
+        <div class="spec-row"><span>Höhe</span><span>78 cm</span></div>
+        <div class="spec-row"><span>Material</span><span>Travertin Kalkstein, poliert matt</span></div>
+        <div class="spec-row"><span>Garantie</span><span>24 Monate</span></div>
+      </div>
+
+      <button class="btn-primary">In den Warenkorb</button>
+      <button class="btn-outline">Beratungstermin vereinbaren</button>
+
+      <div class="concierge"><b>Persönliche Beratung —</b> unser Showroom-Team begleitet Sie von der Material­auswahl bis zur Lieferung in Ihr Zuhause.</div>
+    </div>
+  </div>
+
+  <div class="collection-strip">
+    <div class="eyebrow">Entdecken Sie mehr</div>
+    <h2>Die Travertin Kollektion</h2>
+    <div class="collection-grid">
+      <div class="collection-item" style="background-image:url('img/taranto-front.webp');"></div>
+      <div class="collection-item" style="background-image:url('img/taranto-livingroom.webp');"></div>
+      <div class="collection-item" style="background-image:url('img/taranto-detail-corner.webp');"></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Idealmöbel GmbH — Islikon, Schweiz</span>
+    <span>Showroom · Atelier · Service</span>
+  </footer>
+
+</body>
+</html>

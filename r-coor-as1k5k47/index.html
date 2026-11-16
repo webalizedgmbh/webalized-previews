@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-COOR - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        /* Split Screen Container */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+        }
+
+        /* Left Side - Content */
+        .left-side {
+            background: #333333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 153, 204, 0.15) 0%, transparent 60%);
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Logo */
+        .logo {
+            margin-bottom: 5rem;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .logo-main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0099CC;
+            letter-spacing: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            color: #006699;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        /* Content */
+        .coming-soon-text {
+            font-size: 1rem;
+            color: #0099CC;
+            letter-spacing: 4px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 2.5rem;
+            animation: slideInLeft 0.8s ease-out 0.4s both;
+        }
+
+        .description {
+            font-size: 1.15rem;
+            color: #b0b0b0;
+            line-height: 1.9;
+            margin-bottom: 4rem;
+            animation: slideInLeft 0.8s ease-out 0.6s both;
+        }
+
+        /* Contact Button */
+        .contact-btn {
+            display: inline-block;
+            padding: 1.3rem 3rem;
+            background: linear-gradient(135deg, #0099CC, #006699);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            animation: slideInLeft 0.8s ease-out 0.8s both;
+            border: 1px solid rgba(0, 153, 204, 0.4);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 153, 204, 0.25);
+            border-color: rgba(0, 153, 204, 0.9);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(0, 153, 204, 0.4);
+        }
+
+        /* Right Side - Image Gallery */
+        .right-side {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: imageZoom 12s infinite;
+        }
+
+        .gallery-image:nth-child(1) {
+            background-image: url('/images/frontale.jpg');
+            animation-delay: 0s;
+        }
+
+        .gallery-image:nth-child(2) {
+            background-image: url('/images/prospettiva.jpg');
+            animation-delay: 6s;
+        }
+
+        @keyframes imageZoom {
+            0% { 
+                opacity: 0;
+                transform: scale(1);
+            }
+            8% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.08);
+            }
+            58% { 
+                opacity: 0;
+                transform: scale(1.08);
+            }
+            100% { 
+                opacity: 0;
+                transform: scale(1);
+            }
+        }
+
+        /* Image Overlay with Pattern */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(51, 51, 51, 0.1) 0%, rgba(0, 102, 153, 0.1) 100%);
+            z-index: 1;
+        }
+
+
+        .stat-item {
+            text-align: center;
+            background: rgba(51, 51, 51, 0.8);
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 153, 204, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0099CC;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: left;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out 0.9s both;
+            background-color: #333333;
+            padding: 1rem;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .split-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .left-side {
+                padding: 6rem 2rem 4rem;
+                min-height: 60vh;
+            }
+
+            .right-side {
+                position: relative;
+                min-height: 600px;
+                order: 2;
+            }
+
+            
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .left-side {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="split-container">
+        <!-- Left Side - Content -->
+        <div class="left-side">
+            <div class="content-wrapper">
+                <div class="logo">
+                    <div class="logo-main">R-COOR</div>
+                    <div class="logo-sub">GENERALUNTERNEHMUNG</div>
+                </div>
+
+                <div class="coming-soon-text">COMING SOON</div>
+
+                <h1>Neue Website<br>in Entwicklung</h1>
+
+                <p class="description">
+                    Wir arbeiten an unserer neuen digitalen Präsenz. Entdecken Sie bald unsere innovativen Lösungen für Fassadenarbeiten, Wärmedämmungen und nachhaltige Bauprojekte.
+                </p>
+
+                <a href="mailto:r.marano@r-coor-gu.ch" class="contact-btn">
+                    KONTAKT AUFNEHMEN
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side - Image Gallery -->
+        <div class="right-side">
+            <div class="image-container">
+                <div class="gallery-image"></div>
+                <div class="gallery-image"></div>
+            </div>
+            <div class="image-overlay"></div>
+        </div>
+    </div>
+     <div class="footer">
+            © 2026 R-COOR Generalunternehmung 
+    </div>
+</body>
+</html>

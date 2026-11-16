@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idealmöbel — Webdesign Vorschläge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #A8843F;
+    --gold-light: #C9A85F;
+    --charcoal: #1E1C19;
+    --white: #FBFAF7;
+    --stone: #EAE6DD;
+    --line: rgba(30,28,25,0.1);
+    --text-soft: #5C5648;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--charcoal);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* TOPBAR */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 52px;
+    flex-shrink: 0;
+  }
+  .logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
+  .topbar-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    margin: 0 52px;
+    flex-shrink: 0;
+  }
+
+  /* HERO — compact single line */
+  .hero {
+    padding: 24px 52px 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    flex-shrink: 0;
+  }
+  .hero h1 {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--charcoal);
+  }
+  .hero p {
+    font-size: 13px;
+    color: var(--text-soft);
+    padding-left: 24px;
+    border-left: 1px solid var(--line);
+    line-height: 1.5;
+  }
+
+  /* CARDS ROW */
+  .grid-wrap {
+    flex: 1;
+    padding: 0 52px 32px;
+    display: flex;
+    align-items: stretch;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  .card {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #2a2724;
+  }
+  .card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .card:hover .card-bg { transform: scale(1.04); }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(16,14,12,0.96) 0%,
+      rgba(16,14,12,0.4) 40%,
+      rgba(16,14,12,0.08) 100%
+    );
+    transition: background 0.5s ease;
+  }
+  .card:hover .card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(16,14,12,0.97) 0%,
+      rgba(16,14,12,0.6) 50%,
+      rgba(16,14,12,0.15) 100%
+    );
+  }
+
+  .card-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+  }
+
+  .card-num {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    font-family: 'Cormorant', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    border: 1px solid rgba(168,132,63,0.4);
+    padding: 5px 10px;
+  }
+
+  .card-name {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .card:hover .card-name { opacity: 1; transform: translateY(0); }
+
+  .card-title {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(251,250,247,0.58);
+    margin-bottom: 22px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  }
+  .card:hover .card-desc {
+    max-height: 72px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: #1A1815;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 11px 18px;
+    align-self: flex-start;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .card-btn:hover { background: var(--gold-light); transform: translateX(3px); }
+  .card-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+  /* FOOTER */
+  footer {
+    padding: 22px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .footer-logo img {
+    height: 28px;
+    width: auto;
+    display: block;
+    opacity: 0.45;
+  }
+  .footer-meta {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    opacity: 0.6;
+  }
+
+  /* TABLET */
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .card { aspect-ratio: 3/4; }
+  }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    .topbar { padding: 20px 24px; }
+    .logo img { height: 44px; }
+    .footer-logo img { height: 22px; }
+    .gold-rule { margin: 0 24px; }
+    .hero { padding: 22px 24px 18px; flex-direction: column; gap: 8px; }
+    .hero p { padding-left: 0; border-left: none; }
+    .grid-wrap { padding: 0 24px 36px; }
+    .grid { grid-template-columns: 1fr; gap: 12px; }
+    .card-name { opacity: 1; transform: none; }
+    .card-desc { max-height: 72px; opacity: 1; transform: none; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo"><img src="design/img/idealmoebel-logo.webp" alt="Idealmöbel"></div>
+  <div class="topbar-tag">Webdesign Vorschläge · Juni 2026</div>
+</div>
+<div class="gold-rule"></div>
+
+<div class="hero">
+  <h1>Vier Designrichtungen</h1>
+  <p>Hover für Details — klicken um das Design live zu erleben.</p>
+</div>
+
+<div class="grid-wrap">
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-bg" style="background-image: url('presentazione/img/preview-01.webp');"></div>
+      <div class="card-overlay"></div>
+      <div class="card-inner">
+        <div class="card-num">01</div>
+        <div class="card-name">Bolia Mediterraneo</div>
+        <div class="card-title">Editorial &amp; ruhig</div>
+        <div class="card-desc">Viel Weissraum, warme Cremetöne und eine elegante Serifenschrift — die Produkte stehen im Mittelpunkt.</div>
+        <a class="card-btn" href="design/01-bolia-mediterraneo.html" target="_blank">
+          Live ansehen
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-bg" style="background-image: url('presentazione/img/preview-02.webp');"></div>
+      <div class="card-overlay"></div>
+      <div class="card-inner">
+        <div class="card-num">02</div>
+        <div class="card-name">Boutique Artigianale</div>
+        <div class="card-title">Warm &amp; handwerklich</div>
+        <div class="card-desc">Erdige Töne und Handwerks-Storytelling betonen die Geschichte und das Material hinter jedem Stück.</div>
+        <a class="card-btn" href="design/02-boutique-artigianale.html" target="_blank">
+          Live ansehen
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-bg" style="background-image: url('presentazione/img/preview-03.webp');"></div>
+      <div class="card-overlay"></div>
+      <div class="card-inner">
+        <div class="card-num">03</div>
+        <div class="card-name">Minimal Luxury</div>
+        <div class="card-title">Exklusiv &amp; edel</div>
+        <div class="card-desc">Goldakzente und ein «Limited Edition»-Charakter positionieren die Premium-Stücke als echte Sammlerstücke.</div>
+        <a class="card-btn" href="design/03-minimal-luxury.html" target="_blank">
+          Live ansehen
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-bg" style="background-image: url('presentazione/img/preview-04.webp');"></div>
+      <div class="card-overlay"></div>
+      <div class="card-inner">
+        <div class="card-num">04</div>
+        <div class="card-name">Coastal Moderno</div>
+        <div class="card-title">Frisch &amp; zugänglich</div>
+        <div class="card-desc">Mediterrane Farben und runde Formen sprechen ein breiteres Publikum an — modern, ohne kalt zu wirken.</div>
+        <a class="card-btn" href="design/04-coastal-moderno.html" target="_blank">
+          Live ansehen
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="design/img/idealmoebel-logo.webp" alt="Idealmöbel"></div>
+  <div class="footer-meta">Erstellt von <a href="https://www.webalized.ch" target="_blank" style="color:inherit; font-weight:500; text-decoration:underline;">Webalized</a> · Juni 2026</div>
+</footer>
+
+</body>
+</html>

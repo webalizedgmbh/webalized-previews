@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Training, Tanz & Coaching in Guntershausen | in movimento – Cinzia Gigliotti</title>
+<meta name="description" content="Functional Training, Dance & Latiness, Personal Training und LiF Coaching in Guntershausen bei Aadorf. Bewegung mit italienischer Lebensfreude – jetzt Probetraining sichern.">
+<meta property="og:title" content="in movimento – Bewegung mit Lebensfreude in Guntershausen">
+<meta property="og:description" content="Functional Training, Dance & Latiness, Personal Training & LiF Coaching in der Region Aadorf/Frauenfeld.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.inmovimento.ch/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Palette 2026 — Blue Slate / Cinnamon Wood / Desert Sand / Cloud Dancer */
+    --sand:#EBBEAA;          /* Desert Sand */
+    --cinnamon:#B86F52;      /* Cinnamon Wood */
+    --cinnamon-deep:#9A5539;
+    --slate:#496A81;         /* Blue Slate */
+    --slate-deep:#2F4A5C;
+    --cloud:#EFEEEA;         /* Cloud Dancer */
+    --espresso:#26333C;
+    --max:1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  section[id], [id^='top']{scroll-margin-top:82px;}
+  body{margin:0; background:var(--cloud); color:var(--espresso); font-family:'Mulish', sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:700; line-height:1.05; margin:0; color:var(--espresso);}
+  em{font-style:italic; color:var(--cinnamon-deep);}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  :focus-visible{outline:3px solid var(--cinnamon); outline-offset:3px;}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(239,238,234,0.94); backdrop-filter:blur(6px); border-bottom:2px solid var(--espresso);}
+  .navbar{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:var(--max); margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--espresso);}
+  .logo .mark{width:36px; height:27px; color:var(--cinnamon-deep); flex:none;}
+  .logo .mark svg{display:block; width:100%; height:100%;}
+  .logo .word{font-family:'Fraunces',serif; font-weight:700; font-size:22px; line-height:1;}
+  .logo em{font-style:italic; color:var(--cinnamon-deep);}
+  ul.links{display:flex; gap:30px; list-style:none; margin:0; padding:0; align-items:center;}
+  ul.links a{color:var(--espresso); text-decoration:none; font-size:14.5px; font-weight:600;}
+  ul.links a:hover{color:var(--cinnamon);}
+  .nav-cta{background:var(--cinnamon-deep); color:var(--cloud) !important; padding:10px 20px; border-radius:30px; font-size:13.5px;}
+  .nav-cta:hover{background:var(--espresso) !important;}
+  .burger{display:none; background:none; border:0; font-size:24px; cursor:pointer; color:var(--espresso);}
+  @media (max-width:880px){
+    ul.links{display:none;}
+    .burger{display:block;}
+    header.open ul.links{display:flex; flex-direction:column; align-items:flex-start; gap:14px; position:absolute; top:100%; left:0; right:0; background:var(--cloud); padding:22px 28px; border-bottom:2px solid var(--espresso);}
+  }
+
+  /* HERO with sunburst signature */
+  .hero{position:relative; overflow:hidden; padding:120px 0 100px; background:linear-gradient(180deg, #F6F5F2 0%, var(--cloud) 100%);}
+  .sunburst{
+    position:absolute; top:-220px; right:-220px; width:640px; height:640px; border-radius:50%;
+    background: repeating-conic-gradient(from 0deg, var(--sand) 0deg 8deg, transparent 8deg 20deg);
+    opacity:0.55;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .eyebrow{display:inline-block; font-weight:800; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--cinnamon-deep); margin-bottom:20px; background:rgba(184,111,82,0.12); padding:8px 16px; border-radius:30px;}
+  .hero h1{font-size:clamp(44px,8vw,96px); max-width:820px; margin-bottom:26px;}
+  .hero p.lead{max-width:540px; font-size:19px; color:#4A5A64; margin-bottom:38px;}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:16px 28px; text-decoration:none; font-weight:700; font-size:14.5px; border-radius:40px; transition:transform .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--cinnamon-deep); color:var(--cloud);}
+  .btn-primary:hover{background:var(--espresso);}
+  .btn-ghost{border:2px solid var(--espresso); color:var(--espresso);}
+  .btn-ghost:hover{background:var(--espresso); color:var(--cloud);}
+  .btn-dark{background:var(--slate); color:var(--cloud); border-radius:40px;}
+
+  .hero-stats{display:flex; gap:36px; margin-top:60px; flex-wrap:wrap;}
+  .hero-stats div b{display:block; font-family:'Fraunces',serif; font-size:32px; color:var(--cinnamon-deep);}
+  .hero-stats div span{font-size:12.5px; color:#6A7883; text-transform:uppercase; letter-spacing:0.04em;}
+
+  section{padding:96px 0;}
+  .section-head{max-width:620px; margin-bottom:56px;}
+  .tag{display:inline-block; font-size:13px; font-weight:800; color:var(--cinnamon-deep); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;}
+  .section-head h2{font-size:clamp(32px,5vw,50px); margin-bottom:16px;}
+  .section-head p{font-size:17px; color:#4A5A64;}
+
+  /* PHILOSOPHY */
+  .philosophy{background:var(--espresso); color:var(--cloud); position:relative; overflow:hidden;}
+  .philosophy .sunburst{top:auto; bottom:-260px; left:-260px; right:auto; opacity:0.12;}
+  .philo-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:start; position:relative; z-index:2;}
+  .philo-grid p{color:rgba(239,238,234,0.85); font-size:17px; max-width:500px;}
+  .philo-grid p.philo-quote cite{
+    display:block; margin-top:14px; font-family:'Mulish',sans-serif; font-style:normal;
+    font-size:12.5px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:rgba(235,190,170,0.75);
+  }
+  .philo-grid p.philo-quote{font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:clamp(26px,3.6vw,38px); line-height:1.15; color:var(--sand); max-width:560px; margin:0 0 24px;}
+  .values{display:grid; gap:18px;}
+  .value-card{background:rgba(239,238,234,0.06); border:1px solid rgba(239,238,234,0.15); padding:24px; border-radius:12px;}
+  .value-card h3{font-size:19px; color:var(--sand); margin-bottom:6px; font-weight:600;}
+  .value-card p{font-size:14.5px; color:rgba(239,238,234,0.75); margin:0;}
+  @media (max-width:860px){ .philo-grid{grid-template-columns:1fr;} }
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;}
+  .about-portrait{aspect-ratio:4/5; border-radius:24px; position:relative; overflow:hidden; background:linear-gradient(150deg, var(--sand), var(--cinnamon-deep));}
+  .about-portrait::after{content:"Cinzia Gigliotti"; position:absolute; bottom:22px; left:22px; font-family:'Fraunces',serif; font-weight:700; color:var(--cloud); font-size:18px;}
+  .about h2{font-size:clamp(30px,4.6vw,46px); margin-bottom:20px;}
+  .about p{color:#4A5A64; font-size:17px; max-width:520px;}
+  .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
+  .badge{font-size:12.5px; padding:9px 15px; background:rgba(184,111,82,0.08); border:1px solid rgba(184,111,82,0.25); border-radius:30px; color:var(--cinnamon-deep); font-weight:600;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* OFFERINGS */
+  .offer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .offer-card{background:#fff; border-radius:20px; padding:32px 26px; box-shadow:0 6px 24px rgba(38,51,60,0.06); border-top:5px solid var(--sand); display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease;}
+  .offer-card:hover{transform:translateY(-4px); box-shadow:0 14px 34px rgba(38,51,60,0.12);}
+  .offer-card:nth-child(2){border-top-color:var(--cinnamon);}
+  .offer-card:nth-child(3){border-top-color:var(--slate);}
+  .offer-card:nth-child(4){border-top-color:var(--slate-deep);}
+  .offer-card h3{font-size:21px; margin-bottom:10px;}
+  .offer-card p{font-size:14.5px; color:#55646D; flex:1;}
+  .offer-meta{font-size:12.5px; font-weight:700; color:var(--cinnamon-deep); margin-top:14px; text-transform:uppercase; letter-spacing:0.03em;}
+  @media (max-width:960px){ .offer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .offer-grid{grid-template-columns:1fr;} }
+
+  /* LIF */
+  .lif{background:linear-gradient(135deg, var(--slate), var(--slate-deep)); color:var(--cloud); position:relative; overflow:hidden;}
+  .lif-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:2;}
+  .lif h2{color:var(--cloud); font-size:clamp(30px,4.6vw,46px);}
+  .lif-pillars{list-style:none; padding:0; margin:22px 0; display:flex; gap:12px; flex-wrap:wrap;}
+  .lif-pillars li{background:rgba(239,238,234,0.14); padding:9px 16px; border-radius:30px; font-size:13.5px; font-weight:600;}
+  .lif p.body{color:rgba(239,238,234,0.85); font-size:17px; max-width:480px;}
+  .lif-quote-box{background:rgba(239,238,234,0.08); border:1px solid rgba(239,238,234,0.2); padding:38px 32px; border-radius:20px;}
+  .lif-quote-box p.big{font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:25px; margin-bottom:16px; color:var(--sand);}
+  .lif-quote-box p.small{font-size:14.5px; color:rgba(239,238,234,0.75); margin:0;}
+  @media (max-width:860px){ .lif-grid{grid-template-columns:1fr;} }
+
+  /* PRICING */
+  .price-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .price-card{background:#fff; border-radius:20px; padding:30px 24px; box-shadow:0 6px 24px rgba(38,51,60,0.06);}
+  .price-card h3{font-size:19px; margin-bottom:4px;}
+  .price-card .sub{font-size:12.5px; color:var(--cinnamon-deep); text-transform:uppercase; letter-spacing:0.04em; font-weight:700; margin-bottom:18px; display:block;}
+  .price-line{display:flex; justify-content:space-between; font-size:14px; padding:10px 0; border-top:1px solid rgba(38,51,60,0.08);}
+  .price-line b{color:var(--cinnamon-deep);}
+  .price-note{font-size:12px; color:#7C8A93; margin-top:14px;}
+  @media (max-width:960px){ .price-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .price-grid{grid-template-columns:1fr;} }
+  .price-extra{margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .price-extra-card{background:var(--espresso); color:var(--cloud); padding:24px 26px; border-radius:20px; font-size:14.5px;}
+  .price-extra-card h4{color:var(--sand); margin-bottom:8px; font-size:16px; font-family:'Fraunces',serif; font-weight:600;}
+  @media (max-width:700px){ .price-extra{grid-template-columns:1fr;} }
+
+  /* BOOKING */
+  .booking{background:var(--espresso); color:var(--cloud); position:relative; overflow:hidden;}
+  .booking .sunburst{top:-200px; right:-200px; opacity:0.1;}
+  .booking-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; position:relative; z-index:2;}
+  .booking h2{color:var(--cloud); font-size:clamp(30px,4.6vw,46px);}
+  .calendly-mock{background:var(--cloud); color:var(--espresso); border-radius:20px; padding:24px;}
+  .cal-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; font-family:'Fraunces',serif; font-weight:600; font-size:17px;}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:16px;}
+  .cal-grid span{text-align:center; font-size:12px; padding:8px 0; border-radius:8px; background:#EFE1D8; color:#7C8A93;}
+  .cal-grid span.active{background:var(--cinnamon-deep); color:#fff; font-weight:700;}
+  .cal-slots{display:flex; flex-wrap:wrap; gap:8px;}
+  .cal-slots span{font-size:12.5px; padding:8px 12px; border:1px solid #E3D3C9; border-radius:20px; color:#55646D;}
+  .cal-note{margin-top:16px; font-size:12px; color:#7C8A93; border-top:1px dashed #E3D3C9; padding-top:12px;}
+  .twint-note{margin-top:22px; background:rgba(239,238,234,0.08); border:1px solid rgba(239,238,234,0.2); border-radius:16px; padding:18px 22px; font-size:14px; color:rgba(239,238,234,0.85);}
+  .twint-note b{color:var(--sand);}
+  .contact-info{margin-top:32px; font-size:15px; color:rgba(239,238,234,0.85);}
+  .contact-info p{margin:6px 0;}
+  .contact-info a{color:var(--cloud); text-decoration:underline;}
+  @media (max-width:860px){ .booking-grid{grid-template-columns:1fr;} }
+
+  footer{background:#1B262E; color:rgba(239,238,234,0.55); padding:34px 0; font-size:13px;}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  .foot-mark{width:34px; height:26px; color:var(--sand); flex:none;}
+  .foot-mark svg{display:block; width:100%; height:100%;}
+  footer a{color:rgba(239,238,234,0.7); text-decoration:none; margin-left:18px;}
+  footer a:hover{color:var(--cloud);}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="navbar">
+    <a href="#top" class="logo">
+      <span class="mark"><svg viewBox="0 0 72 54" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true">
+        <g transform="translate(36,44)">
+          <path d="M0,0 C-11,-9.3 -11,-22.7 0,-32 C11,-22.7 11,-9.3 0,0 Z" transform="rotate(-76)"/>
+          <path d="M0,0 C-11,-9.3 -11,-22.7 0,-32 C11,-22.7 11,-9.3 0,0 Z" transform="rotate(76)"/>
+          <path d="M0,0 C-9,-9.6 -9,-23.4 0,-33 C9,-23.4 9,-9.6 0,0 Z" transform="rotate(-33)"/>
+          <path d="M0,0 C-9,-9.6 -9,-23.4 0,-33 C9,-23.4 9,-9.6 0,0 Z" transform="rotate(33)"/>
+          <path fill="currentColor" d="M0,0 C-9.5,-10.4 -9.5,-25.6 0,-36 C9.5,-25.6 9.5,-10.4 0,0 Z"/>
+        </g>
+      </svg></span>
+      <span class="word">in <em>movimento</em></span>
+    </a>
+    <button class="burger" onclick="document.getElementById('site-header').classList.toggle('open')" aria-label="Menü öffnen">☰</button>
+    <ul class="links">
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#angebot">Angebot</a></li>
+      <li><a href="#lif">LiF Coaching</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#kontakt" class="nav-cta">Probetraining</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="sunburst" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow">Guntershausen bei Aadorf · Thurgau</span>
+    <h1>Bewegung ist <em>Lebensfreude.</em></h1>
+    <p class="lead">Functional Training, Tanz, Outdoor-Bootcamp und ganzheitliches LiF Coaching – mit italienischer Herzlichkeit und Schweizer Verlässlichkeit. Von Cinzia Gigliotti.</p>
+    <div class="cta-row">
+      <a href="#kontakt" class="btn btn-primary">Kostenloses Probetraining sichern</a>
+      <a href="#angebot" class="btn btn-ghost">Angebot entdecken</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>4</b><span>Trainingsformate</span></div>
+      <div><b>1:1</b><span>Personal Coaching</span></div>
+      <div><b>7/7</b><span>Termine n. Absprache</span></div>
+      <div><b>0.–</b><span>Erstes Probetraining</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy">
+  <div class="sunburst" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="philo-grid">
+      <div>
+        <span class="tag" style="color:var(--sand);">Unsere Philosophie</span>
+        <p class="philo-quote">„Alles Leben ist Bewegung, und Bewegung ist Leben.“<cite>— Aristoteles</cite></p>
+        <p>Der Name <strong style="color:var(--cloud);">in movimento</strong> kommt aus dem Italienischen und bedeutet „in Bewegung" – eine Lebensphilosophie, die wir aus vollem Herzen leben und weitergeben. Unsere Programme vereinen Bewegung, Ernährung und Entspannung zu einem ganzheitlichen Ansatz für mehr Lebensfreude.</p>
+      </div>
+      <div class="values">
+        <div class="value-card"><h3>Professionalität</h3><p>Fachkundige Betreuung, abgestimmt auf deine individuellen Bedürfnisse.</p></div>
+        <div class="value-card"><h3>Herz</h3><p>Leidenschaft und Einfühlungsvermögen in allem, was wir tun.</p></div>
+        <div class="value-card"><h3>Humor</h3><p>Freude und Leichtigkeit, die jede Begegnung bereichern.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ueber-mich">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-portrait"></div>
+      <div>
+        <span class="tag">Über mich</span>
+        <h2 class="about">Immer in movimento, weil Bewegung Leben ist</h2>
+        <p>Ciao, ich bin Cinzia! Bewegung war schon immer meine Leidenschaft – ob auf dem Bike über anspruchsvolle Trails, beim Volleyball im Dorfverein, bei Spaziergängen am See oder beim Tanzen. Für mich ist Bewegung nicht nur Training, sondern ein Schlüssel zu mentaler Stärke, Lebensfreude und Energie.</p>
+        <p>Heute begleite ich Menschen mit Functional Training, individuellem Coaching, Dance-Workshops und Ernährungsberatung – ganzheitlich, nachhaltig, voller Energie, immer mit Humor und Herzlichkeit.</p>
+        <div class="badges">
+          <span class="badge">Cert. Integral Coach</span>
+          <span class="badge">Funktionaler Trainer</span>
+          <span class="badge">Eidg. FA Ausbildnerin</span>
+          <span class="badge">Bootcamp/Outdoor Instructor</span>
+          <span class="badge">Dance Instructor</span>
+          <span class="badge">Groupfitness Instructor</span>
+          <span class="badge">Nordic Walking Instructor</span>
+          <span class="badge">Gesundheitsberaterin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="angebot">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Angebot</span>
+      <h2>Vier Wege, dich zu bewegen</h2>
+      <p>Ob draussen, im Training oder auf der Tanzfläche – jedes Format bringt seine eigene Energie, alle teilen dieselbe Basis: funktionelle, alltagsnahe Bewegung.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <h3>Functional Training & Flow</h3>
+        <p>Ganzheitliches Ganzkörpertraining mit Kettlebells, Sandsäcken und dem eigenen Körpergewicht – die Basis aller in-movimento-Programme.</p>
+        <span class="offer-meta">Termine nach Absprache</span>
+      </div>
+      <div class="offer-card">
+        <h3>Functional Bootcamp</h3>
+        <p>The natural Playstation! Funktionelles Training an der frischen Luft, bei jedem Wetter.</p>
+        <span class="offer-meta">Mi 18:00 · Sa 09:30</span>
+      </div>
+      <div class="offer-card">
+        <h3>Dance & More / Latiness</h3>
+        <p>Die perfekte Fusion aus Tanz und Cardio-Workout – Latino-Rhythmen und pure Lebensfreude.</p>
+        <span class="offer-meta">1./2. So, 10:00 (Nov–März)</span>
+      </div>
+      <div class="offer-card">
+        <h3>Personal Training</h3>
+        <p>1:1 Training und Coaching, ganz auf deine Ziele zugeschnitten. Du bestimmst Zeit und Ort.</p>
+        <span class="offer-meta">Montag bis Sonntag</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lif" id="lif">
+  <div class="wrap">
+    <div class="lif-grid">
+      <div>
+        <span class="tag" style="color:var(--sand);">LiF Coaching – Live in Flow</span>
+        <h2>Hör auf zu funktionieren. Komm zurück zu dir.</h2>
+        <p class="body">Ein körperorientiertes, ganzheitliches Coaching für Menschen, die mehr wollen als nur funktionieren. Wertfrei, präsent und ehrlich begleite ich dich dabei herauszufinden, was du wirklich willst.</p>
+        <ul class="lif-pillars"><li>Kein Druck</li><li>Keine Bewertung</li><li>Kein „du musst"</li></ul>
+        <p class="body" style="font-size:15px;">Besonders begleite ich Frauen in Veränderungsphasen – willkommen ist grundsätzlich jede und jeder, der bereit ist, sich selbst ehrlich zu begegnen.</p>
+        <a href="#kontakt" class="btn btn-dark" style="margin-top:10px;">Kostenloses Erstgespräch sichern</a>
+      </div>
+      <div class="lif-quote-box">
+        <p class="big">Ich begleite dich mit Herz, Klarheit, Empathie und Struktur.</p>
+        <p class="small">Systemisch, körperorientiert und lösungsfokussiert – mit gezielten Fragen, Reflexion und Körperwahrnehmung werden Blockaden sichtbar, und die Lösungen, die du bereits in dir trägst, spürbar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="preise">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Preise</span>
+      <h2>Transparent & fair</h2>
+      <p>Jedes Format startet mit einem kostenlosen Kennenlernen.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="sub">Outdoor Training</span>
+        <h3>Functional Bootcamp</h3>
+        <div class="price-line"><span>Probetraining</span><b>gratis</b></div>
+        <div class="price-line"><span>Einzeleintritt · 50 Min</span><b>CHF 15</b></div>
+        <div class="price-line"><span>10er-Abo</span><b>CHF 150</b></div>
+        <p class="price-note">Ab 3 Personen, Kleingruppe ab 2 (CHF 30/45 Min).</p>
+      </div>
+      <div class="price-card">
+        <span class="sub">Dance · Latiness · Flow</span>
+        <h3>Group Fitness</h3>
+        <div class="price-line"><span>Probetraining</span><b>gratis</b></div>
+        <div class="price-line"><span>Einzeleintritt · 50 Min</span><b>CHF 25</b></div>
+        <div class="price-line"><span>10er-Abo</span><b>CHF 250</b></div>
+        <p class="price-note">Training findet ab 3 Personen statt.</p>
+      </div>
+      <div class="price-card">
+        <span class="sub">Individuell 1:1</span>
+        <h3>Personal Training</h3>
+        <div class="price-line"><span>Kennenlernen</span><b>gratis</b></div>
+        <div class="price-line"><span>Beratung (~2 Std.)</span><b>CHF 300</b></div>
+        <div class="price-line"><span>Einzeltraining · 60 Min</span><b>CHF 110</b></div>
+        <div class="price-line"><span>5er / 10er-Abo</span><b>CHF 500/900</b></div>
+      </div>
+      <div class="price-card">
+        <span class="sub">Live in Flow</span>
+        <h3>LiF Coaching</h3>
+        <div class="price-line"><span>Kennenlernen · 15 Min</span><b>gratis</b></div>
+        <div class="price-line"><span>Coaching · 75 Min</span><b>CHF 180</b></div>
+        <p class="price-note">Neue Termine laufend verfügbar.</p>
+      </div>
+    </div>
+    <div class="price-extra">
+      <div class="price-extra-card"><h4>Events & Firmen</h4><p>Booster Events und Workshops gemäss aktueller Ausschreibung. Firmenangebote auf Anfrage.</p></div>
+      <div class="price-extra-card"><h4>Medizinische Massage</h4><p>Klassische Massage, Bindegewebsmassage, Lymphdrainage u.a. – Krankenkassen anerkannt. Standort: Medpoint, Zürich.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="kontakt">
+  <div class="sunburst" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="booking-grid">
+      <div>
+        <span class="tag" style="color:var(--sand);">Jetzt buchen</span>
+        <h2>Bereit? Lass uns starten.</h2>
+        <p style="color:rgba(239,238,234,0.85); font-size:17px; max-width:460px;">Sichere dir dein kostenloses Probetraining oder Erstgespräch – online in wenigen Klicks, oder klassisch per Telefon.</p>
+        <div class="contact-info">
+          <p><strong>Cinzia Gigliotti</strong> · in movimento LifestyleCoaching</p>
+          <p>CH-8357 Guntershausen bei Aadorf</p>
+          <p>Mobile: <a href="tel:+41795953913">+41 79 595 39 13</a></p>
+          <p>Massage-Termine: <a href="tel:+41767496959">+41 76 749 69 59</a></p>
+          <p>E-Mail: <a href="mailto:post@inmovimento.ch">post@inmovimento.ch</a></p>
+        </div>
+      </div>
+      <div>
+        <div class="calendly-mock">
+          <div class="cal-head"><span>Termin wählen</span><span style="font-size:12px; color:#7C8A93;">via Calendly</span></div>
+          <div class="cal-grid">
+            <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+            <span></span><span></span><span class="active">3</span><span>4</span><span>5</span><span class="active">6</span><span></span>
+            <span>8</span><span>9</span><span class="active">10</span><span>11</span><span>12</span><span class="active">13</span><span></span>
+          </div>
+          <div class="cal-slots"><span>08:00</span><span>10:30</span><span>17:00</span><span>18:30</span></div>
+          <p class="cal-note">Platzhalter-Ansicht: Hier wird der echte Calendly-Kalender eingebettet.</p>
+        </div>
+        <div class="twint-note"><b>Zur Zahlung:</b> Anzahlungen und Kurspakete direkt bei der Buchung – geplant sind TWINT, Kreditkarte und Rechnung.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-mark"><svg viewBox="0 0 72 54" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true">
+        <g transform="translate(36,44)">
+          <path d="M0,0 C-11,-9.3 -11,-22.7 0,-32 C11,-22.7 11,-9.3 0,0 Z" transform="rotate(-76)"/>
+          <path d="M0,0 C-11,-9.3 -11,-22.7 0,-32 C11,-22.7 11,-9.3 0,0 Z" transform="rotate(76)"/>
+          <path d="M0,0 C-9,-9.6 -9,-23.4 0,-33 C9,-23.4 9,-9.6 0,0 Z" transform="rotate(-33)"/>
+          <path d="M0,0 C-9,-9.6 -9,-23.4 0,-33 C9,-23.4 9,-9.6 0,0 Z" transform="rotate(33)"/>
+          <path fill="currentColor" d="M0,0 C-9.5,-10.4 -9.5,-25.6 0,-36 C9.5,-25.6 9.5,-10.4 0,0 Z"/>
+        </g>
+      </svg></span>
+    <span>© in movimento 2026 · Cinzia Gigliotti · Guntershausen</span>
+    <span><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Impressum</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idealmöbel — Bolia Mediterraneo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F1E9;
+    --cream-deep:#EFE7D8;
+    --terracotta:#C7693F;
+    --terracotta-deep:#A8512E;
+    --olive:#6B6B4F;
+    --ink:#2B2620;
+    --ink-soft:#5C5648;
+    --line:#DDD2BD;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .logo{ display:flex; align-items:center; }
+  .nav{
+    display:flex;
+    gap:40px;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nav-icons{
+    display:flex;
+    gap:24px;
+    font-size:13px;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+  }
+
+  .breadcrumb{
+    padding:24px 64px 0;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .breadcrumb span{color:var(--terracotta-deep);}
+
+  .product{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:80px;
+    padding:48px 64px 100px;
+    max-width:1400px;
+    margin:0 auto;
+  }
+
+  .gallery-main{
+    aspect-ratio:4/5;
+    border-radius:2px;
+    position:relative;
+    overflow:hidden;
+    background-size:cover;
+    background-position:center;
+  }
+  .gallery-thumbs{
+    display:flex;
+    gap:12px;
+    margin-top:16px;
+  }
+  .thumb{
+    flex:1;
+    aspect-ratio:1;
+    border-radius:2px;
+    background-size:cover;
+    background-position:center;
+    opacity:0.55;
+    cursor:pointer;
+  }
+  .thumb.active{opacity:1;outline:1px solid var(--terracotta);}
+
+  .info{padding-top:8px;}
+  .info-eyebrow{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--terracotta-deep);
+    margin-bottom:18px;
+  }
+  .info h1{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:46px;
+    line-height:1.08;
+    letter-spacing:-0.5px;
+    margin-bottom:18px;
+  }
+  .info-desc{
+    font-size:16px;
+    line-height:1.75;
+    color:var(--ink-soft);
+    max-width:440px;
+    margin-bottom:28px;
+  }
+  .price{
+    font-family:'Fraunces',serif;
+    font-size:28px;
+    font-weight:400;
+    margin-bottom:36px;
+  }
+  .price small{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:block;
+    margin-top:4px;
+    font-weight:400;
+  }
+
+  .field{margin-bottom:28px;}
+  .field-label{
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:12px;
+    display:block;
+  }
+  .swatches{display:flex;gap:10px;}
+  .swatch{
+    width:34px;height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .swatch.s1{background:#C99A6E;}
+  .swatch.s2{background:#3E3A33;}
+  .swatch.s3{background:#B8AE9C;}
+  .swatch.active{border:1px solid var(--ink);outline:2px solid var(--cream);outline-offset:1px;box-shadow:0 0 0 1px var(--ink);}
+
+  .dims{
+    display:flex;
+    gap:32px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin-bottom:32px;
+  }
+  .dim{font-size:13px;color:var(--ink-soft);}
+  .dim b{display:block;font-family:'Fraunces',serif;font-size:18px;color:var(--ink);font-weight:400;margin-bottom:2px;}
+
+  .cta-row{display:flex;gap:14px;margin-bottom:32px;}
+  .btn-primary{
+    flex:1;
+    background:var(--ink);
+    color:var(--cream);
+    padding:18px 0;
+    text-align:center;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-secondary{
+    width:60px;
+    border:1px solid var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    cursor:pointer;
+  }
+
+  .note{
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.8;
+    border-left:2px solid var(--terracotta);
+    padding-left:18px;
+  }
+
+  .story{
+    padding:0 64px 100px;
+    max-width:1400px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:80px;
+    align-items:center;
+  }
+  .story-img{
+    aspect-ratio:1/1.1;
+    border-radius:2px;
+    background-size:cover;
+    background-position:center;
+  }
+  .story h2{
+    font-family:'Fraunces',serif;
+    font-size:34px;
+    font-weight:400;
+    line-height:1.3;
+    margin-bottom:20px;
+    max-width:480px;
+  }
+  .story p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink-soft);
+    max-width:480px;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 64px;
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+
+  @media (max-width: 860px){
+    .topbar{padding:16px 20px;flex-direction:column;align-items:flex-start;gap:10px;}
+    .nav{display:none;}
+    .nav-icons{font-size:12px;gap:14px;}
+    .breadcrumb{padding:16px 20px 0;font-size:11px;}
+    .product{
+      grid-template-columns:1fr;
+      gap:24px;
+      padding:20px 20px 56px;
+    }
+    .info h1{font-size:32px;}
+    .info-desc{max-width:100%;}
+    .dims{flex-wrap:wrap;gap:16px 24px;}
+    .cta-row{flex-wrap:nowrap;}
+    .story{
+      grid-template-columns:1fr;
+      gap:24px;
+      padding:0 20px 56px;
+    }
+    .story h2,.story p{max-width:100%;}
+    .story h2{font-size:26px;}
+    footer{padding:24px 20px;flex-direction:column;gap:6px;text-align:center;}
+  }
+
+  @media (max-width: 420px){
+    .info h1{font-size:27px;}
+    .price{font-size:24px;}
+    .btn-primary{font-size:12px;padding:16px 0;}
+    .dim b{font-size:16px;}
+    .story h2{font-size:23px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="logo"><img src="img/idealmoebel-logo.webp" alt="Idealmöbel" height="44" style="display:block;"></div>
+    <nav class="nav">
+      <a href="#">Wohnzimmer</a>
+      <a href="#">Esstische</a>
+      <a href="#">Schlafzimmer</a>
+      <a href="#">Kollektionen</a>
+    </nav>
+    <div class="nav-icons">
+      <span>Suche</span>
+      <span>Konto</span>
+      <span>Warenkorb (0)</span>
+    </div>
+  </div>
+
+  <div class="breadcrumb">Home / Esstische / <span>Travertin Kollektion</span></div>
+
+  <div class="product">
+    <div>
+      <div class="gallery-main" style="background-image:url('img/taranto-atmospheric.webp');"></div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" style="background-image:url('img/taranto-front.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-side.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-detail-corner.webp');"></div>
+        <div class="thumb" style="background-image:url('img/taranto-top.webp');"></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info-eyebrow">Travertin Kollektion</div>
+      <h1>Tavolo<br>Taranto</h1>
+      <p class="info-desc">Ein Tisch aus massivem Travertin ist kein Möbelstück wie jedes andere. Die natürlichen Adern und Farbnuancen des Kalksteins sind einzigartig — kein Taranto gleicht dem anderen. Was Sie erhalten, ist nicht nur ein Tisch, sondern ein Unikat der Natur.</p>
+
+      <div class="price">CHF 4'490.–<small>Inkl. MwSt. Versand wird beim Checkout berechnet</small></div>
+
+      <div class="field">
+        <span class="field-label">Oberfläche</span>
+        <div class="swatches">
+          <div class="swatch s1 active"></div>
+          <div class="swatch s2"></div>
+          <div class="swatch s3"></div>
+        </div>
+      </div>
+
+      <div class="dims">
+        <div class="dim"><b>Ø 130</b>cm</div>
+        <div class="dim"><b>78</b>cm hoch</div>
+        <div class="dim"><b>4 Pers.</b>grosszügig für 2</div>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn-primary">In den Warenkorb</button>
+        <div class="btn-secondary">♡</div>
+      </div>
+
+      <p class="note">Auch erhältlich in <a href="#" style="color:var(--terracotta-deep);text-decoration:underline;">Ø 150 cm</a>. Abholung direkt in unserem 2'000 m² Showroom in Islikon möglich — wir freuen uns auf Ihren Besuch.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-img" style="background-image:url('img/taranto-garden.webp');"></div>
+    <div>
+      <h2>Ein Ort für besondere Momente</h2>
+      <p>Der Taranto Esstisch ist mehr als nur ein Möbelstück. Er wird zum Mittelpunkt gemeinsamer Mahlzeiten, inspirierender Gespräche und unvergesslicher Momente mit Familie und Freunden — drinnen wie draussen.</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>Idealmöbel GmbH — Islikon, Schweiz</span>
+    <span>Showroom · Lieferung · Garantie</span>
+  </footer>
+
+</body>
+</html>
